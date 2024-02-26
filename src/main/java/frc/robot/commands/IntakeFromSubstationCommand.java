@@ -1,11 +1,11 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.IntakeArmsSubsystem;
 import frc.robot.subsystems.IntakeArmsSubsystem.ArmState;
 
-public class IntakeFromSubstationCommand extends CommandBase {
+public class IntakeFromSubstationCommand extends Command {
         IntakeArmsSubsystem intakeArms;
         ConveyorSubsystem conveyor;
 

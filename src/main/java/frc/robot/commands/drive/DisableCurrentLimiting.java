@@ -1,9 +1,9 @@
 package frc.robot.commands.drive;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
 
-public class DisableCurrentLimiting extends CommandBase {
+public class DisableCurrentLimiting extends Command {
     private DriveSubsystem drive;
 
     public DisableCurrentLimiting(DriveSubsystem drive) {

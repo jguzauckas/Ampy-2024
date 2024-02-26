@@ -2,14 +2,14 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IntakeRollersSubsystem;
 
 /**
  * Enable the rollers of Ampy's intake arms to spin forwards (in the direction
  * to intake objects)
  */
-public class MoveIntakeRollersCommand extends CommandBase {
+public class MoveIntakeRollersCommand extends Command {
     private IntakeRollersSubsystem intakeRollers;
     private DoubleSupplier speed;
 

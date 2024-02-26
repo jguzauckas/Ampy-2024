@@ -4,14 +4,14 @@ import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
 
 /**
  * Command to drive the robot, using speed and rotation values. Requires the
  * DriveSubsystem.
  */
-public class DriveCommand extends CommandBase {
+public class DriveCommand extends Command {
     // Speed values
     private DoubleSupplier speed;
     // Value to scale joystick speed input by. Should probably be less than 1.
