@@ -12,12 +12,12 @@ public class DisableCurrentLimiting extends Command {
 
     @Override
     public void initialize() {
-        drive.setCurrentLimitEnabled(false);
+        drive.setCurrentLimit(false);
     }
 
     @Override
     public void end(boolean interrupted) {
-        drive.setCurrentLimitEnabled(true);
+        drive.setCurrentLimit(true);
     }
 
 }

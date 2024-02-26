@@ -1,7 +1,5 @@
 package frc.robot.commands.autonomous;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveSubsystem;
@@ -17,11 +15,6 @@ public class AutoDriveCommand extends Command{
         this.drive = drive;
         this.speed = speed;
         this.curvature = curvature;
-    }
-
-    @Override
-    public void initialize() {
-        drive.setNeutralMode(NeutralMode.Brake);
     }
     
     @Override

@@ -1,15 +1,15 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.hardware.WPI_CANSparkMax;
 
 public class ConveyorSubsystem extends SubsystemBase {
 
-    private WPI_CANSparkMax conveyorMotor;
+    private CANSparkMax conveyorMotor;
     private static final int CONVEYOR_MOTOR_CAN_ID = 5; // CAN ID should be 5, it may be different as a result of testing
     private static final int INTAKE_SENSOR_CHANNEL = 0;
     private final DigitalInput intakeSensor;
@@ -19,9 +19,8 @@ public class ConveyorSubsystem extends SubsystemBase {
     public ConveyorSubsystem() {
         intakeSensor = new DigitalInput(INTAKE_SENSOR_CHANNEL);
         conveyorSensor = new DigitalInput(CONVEYOR_SENSOR_CHANNEL);
-        conveyorMotor = new WPI_CANSparkMax(CONVEYOR_MOTOR_CAN_ID, MotorType.kBrushless);
+        conveyorMotor = new CANSparkMax(CONVEYOR_MOTOR_CAN_ID, MotorType.kBrushless);
         conveyorMotor.restoreFactoryDefaults();
-        addChild("Conveyor motor", conveyorMotor);
         initializeSmartDashboard();
     }
 

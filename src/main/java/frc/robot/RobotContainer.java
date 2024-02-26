@@ -7,7 +7,6 @@ import frc.robot.commands.autonomous.AutoScoreCommand;
 import frc.robot.commands.drive.DisableCurrentLimiting;
 import frc.robot.commands.autonomous.AutoScorePiece;
 import frc.robot.commands.drive.DriveCommand;
-import frc.robot.commands.drive.SetNeutralModeCommand;
 import frc.robot.subsystems.*;
 import frc.robot.subsystems.IntakeArmsSubsystem.ArmState;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -18,11 +17,8 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -34,7 +30,6 @@ public class RobotContainer {
   private final DriveSubsystem drive;
   private final IntakeArmsSubsystem intakeArms;
   private final IntakeRollersSubsystem intakeRollers;
-  private final PowerDistributionPanelSubsystem pdp;
   private final LEDSubsystem ledSubsystem;
   // Joysticks
   private final CommandXboxController driveController;
@@ -54,7 +49,6 @@ public class RobotContainer {
     drive = new DriveSubsystem();
     intakeArms = new IntakeArmsSubsystem();
     intakeRollers = new IntakeRollersSubsystem();
-    pdp = new PowerDistributionPanelSubsystem(new PowerDistribution());
     ledSubsystem = new LEDSubsystem();
 
     // Initialize pneumatics
@@ -106,7 +100,6 @@ public class RobotContainer {
     driveController.y().onTrue(new SetLedColorCommand(ledSubsystem, 255, 102, 0));
     
     driveController.leftStick().whileTrue(new DisableCurrentLimiting(drive));
-    driveController.b().onTrue(new SetNeutralModeCommand(NeutralMode.Brake, drive));
 
     driveController.leftBumper().onTrue(new IntakeFromFloorCommand(intakeArms, conveyor, intakeRollers));
     driveController.rightBumper()
